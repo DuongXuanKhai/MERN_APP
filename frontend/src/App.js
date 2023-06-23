@@ -10,24 +10,12 @@ function App() {
   const productData = useSelector((state) => state.product);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(
-          `${process.env.REACT_APP_SERVER_DOMAIN}/product`,
-        );
-        if (!res.ok) {
-          throw new Error('Error fetching data');
-        }
-        const resData = await res.json();
-        dispatch(setDataProduct(resData));
-      } catch (error) {
-        // Xử lý lỗi tại đây (ví dụ: hiển thị thông báo lỗi)
-      }
-    };
-
-    fetchData();
+    (async () => {
+      const res = await fetch(`${process.env.REACT_APP_SERVER_DOMIN}/product`);
+      const resData = await res.json();
+      dispatch(setDataProduct(resData));
+    })();
   }, []);
-
   return (
     <>
       <Toaster />
