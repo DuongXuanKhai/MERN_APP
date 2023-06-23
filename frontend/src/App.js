@@ -12,9 +12,11 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(
-          `${process.env.REACT_APP_SERVER_DOMAIN}/product`,
-        );
+        const serverDomain = process.env.REACT_APP_SERVER_DOMAIN;
+        const url = serverDomain.endsWith('/')
+          ? `${serverDomain}product`
+          : `${serverDomain}/product`;
+        const res = await fetch(url);
         if (!res.ok) {
           throw new Error('Error fetching data');
         }
