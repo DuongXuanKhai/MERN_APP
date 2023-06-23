@@ -23,7 +23,6 @@ function App() {
         const resData = await res.json();
         dispatch(setDataProduct(resData));
       } catch (error) {
-        console.error(error);
         // Xử lý lỗi tại đây (ví dụ: hiển thị thông báo lỗi)
       }
     };
