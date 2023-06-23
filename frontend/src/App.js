@@ -12,17 +12,16 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const serverDomain = process.env.REACT_APP_SERVER_DOMAIN;
-        const url = serverDomain.endsWith('/')
-          ? `${serverDomain}product`
-          : `${serverDomain}/product`;
-        const res = await fetch(url);
+        const res = await fetch(
+          `${process.env.REACT_APP_SERVER_DOMAIN}/product`,
+        );
         if (!res.ok) {
           throw new Error('Error fetching data');
         }
         const resData = await res.json();
         dispatch(setDataProduct(resData));
       } catch (error) {
+        console.error(error);
         // Xử lý lỗi tại đây (ví dụ: hiển thị thông báo lỗi)
       }
     };
