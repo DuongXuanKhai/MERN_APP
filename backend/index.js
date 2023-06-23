@@ -13,7 +13,7 @@ mongoose.set("strictQuery", false);
 mongoose
   .connect(process.env.MONGODB_URL)
   .then(() => console.log("connect to Database"))
-  .catch(() => console.log(err));
+  .catch((err) => console.log(err));
 //Schema
 const userSchema = mongoose.Schema({
   firstName: String,
