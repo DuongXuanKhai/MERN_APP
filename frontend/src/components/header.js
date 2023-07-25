@@ -18,35 +18,35 @@ const Header = () => {
   const handleShowMenu = () => {
     setShowMenu((preve) => !preve);
   };
-  const cartItemNumber = useSelector((state)=> state.product.cartItem)
+  const cartItemNumber = useSelector((state) => state.product.cartItem)
   return (
-    <header className="fixed shadow-md w-full h-16 px-2 md:px-4 z-50 bg-white ">
+    <header className="fixed z-50 w-full h-16 px-2 bg-white shadow-md md:px-4 ">
       {/*desktop*/}
-      <div className="flex items-center h-full justify-between">
+      <div className="flex items-center justify-between h-full">
         <Link to={''}>
           <div className="h-10">
             <img src={logo} className="h-full " />
           </div>
         </Link>
         <div className="flex items-center gap-4 md:gap-7">
-          <nav className=" gap-4 md:gap-6 text-base md:text-lg hidden md:flex">
+          <nav className="hidden gap-4 text-base  md:gap-6 md:text-lg md:flex">
             <Link to={''}>Home</Link>
             <Link to={'menu/6486ffb914b03f396a71f158'}>Menu</Link>
             <Link to={'about'}>About</Link>
             <Link to={'contact'}>Contact</Link>
           </nav>
-          <div className="text-2xl text-slate-600 relative">
+          <div className="relative text-2xl text-slate-600">
             <Link to={'cart'}>
               <BsFillCartFill />
-              <div className="absolute -top-1 -right-1 text-white bg-red-500 h-4 w-4 rounded-full m-0 p-0 text-sm text-center">
-              {cartItemNumber.length}
+              <div className="absolute w-4 h-4 p-0 m-0 text-sm text-center text-white bg-red-500 rounded-full -top-1 -right-1">
+                {cartItemNumber.length}
               </div>
             </Link>
           </div>
           <div className=" text-slate-600" onClick={handleShowMenu}>
-            <div className="text-3xl cursor-pointer w-7 h-7 rounded-full overflow-hidden drop-shadow-md">
+            <div className="overflow-hidden text-3xl rounded-full cursor-pointer w-7 h-7 drop-shadow-md">
               {userData.image ? (
-                <img src={userData.image} className="h-full w-full" />
+                <img src={userData.image} className="w-full h-full" />
               ) : (
                 <HiOutlineUserCircle />
               )}
@@ -56,7 +56,7 @@ const Header = () => {
                 {userData.email === process.env.REACT_APP_ADMIN_EMAIL && (
                   <Link
                     to={'newproduct'}
-                    className="whitespace-nowarp cursor-pointer px-2"
+                    className="px-2 cursor-pointer whitespace-nowarp"
                   >
                     New product
                   </Link>
@@ -64,7 +64,7 @@ const Header = () => {
 
                 {userData.image ? (
                   <p
-                    className="cursor-pointer px-2 text-white bg-blue-400"
+                    className="px-2 text-white bg-blue-400 cursor-pointer"
                     onClick={handleLogout}
                   >
                     Logout
@@ -73,12 +73,12 @@ const Header = () => {
                 ) : (
                   <Link
                     to={'login'}
-                    className="whitespace-nowarp cursor-pointer px-2"
+                    className="px-2 cursor-pointer whitespace-nowarp"
                   >
                     Login
                   </Link>
                 )}
-                <nav className="text-base md:text-lg flex flex-col md:hidden">
+                <nav className="flex flex-col text-base md:text-lg md:hidden">
                   <Link to={''} className="px-2 py-1">
                     Home
                   </Link>

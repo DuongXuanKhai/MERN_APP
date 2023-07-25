@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import loginSignupImage from '../assest/login-animation.gif';
+import loginSignupImage from '../assest/loginsignup2.png';
 import { BiHide, BiShow } from 'react-icons/bi';
 import { Link, useNavigate } from 'react-router-dom';
 import { ImageToBase64 } from '../utility/ImageToBase64';
@@ -75,16 +75,16 @@ const Signup = () => {
   };
   return (
     <div className="p-3 md:p-4">
-      <div className="w-full max-w-sm bg-white m-auto flex flex-col p-4 rounded-xl">
-        {/* <h1 className="text-center text-xl font-bold">Signup</h1> */}
-        <div className="w-20 h-20 overflow-hidden rounded-full drop-shadow-md shadow-md m-auto relative">
+      <div className="flex flex-col w-full max-w-sm p-4 m-auto bg-white rounded-xl">
+        {/* <h1 className="text-xl font-bold text-center">Signup</h1> */}
+        <div className="relative w-20 h-20 m-auto overflow-hidden rounded-full shadow-md drop-shadow-md">
           <img
             src={data.image ? data.image : loginSignupImage}
             className="w-full h-full"
           />
           <label htmlFor="profileImage">
-            <div className="absolute bottom-0 h-1/3  bg-slate-500 bg-opacity-50 w-full text-center cursor-pointer">
-              <p className="text-sm p-1 text-white">Upload</p>
+            <div className="absolute bottom-0 w-full text-center bg-opacity-50 cursor-pointer h-1/3 bg-slate-500">
+              <p className="p-1 text-sm text-white">Upload</p>
             </div>
             <input
               type={'file'}
@@ -95,13 +95,13 @@ const Signup = () => {
             />
           </label>
         </div>
-        <form className="w-full py-3 flex flex-col" onSubmit={handleSubmit}>
+        <form className="flex flex-col w-full py-3" onSubmit={handleSubmit}>
           <label htmlFor="firstName">First Name</label>
           <input
             type={'text'}
             id="firstName"
             name="firstName"
-            className="mt-1 mb-2 w-full bg-slate-200 px-2 py-1 rounded focus-within:outline-blue-300"
+            className="w-full px-2 py-1 mt-1 mb-2 rounded bg-slate-200 focus-within:outline-blue-300"
             value={data.firstName}
             onChange={handleOnChange}
           />
@@ -111,7 +111,7 @@ const Signup = () => {
             type={'text'}
             id="lastName"
             name="lastName"
-            className="mt-1 mb-2 w-full bg-slate-200 px-2 py-1 rounded focus-within:outline-blue-300"
+            className="w-full px-2 py-1 mt-1 mb-2 rounded bg-slate-200 focus-within:outline-blue-300"
             value={data.lastName}
             onChange={handleOnChange}
           />
@@ -121,18 +121,18 @@ const Signup = () => {
             type={'email'}
             id="email"
             name="email"
-            className="mt-1 mb-2 w-full bg-slate-200 px-2 py-1 rounded focus-within:outline-blue-300"
+            className="w-full px-2 py-1 mt-1 mb-2 rounded bg-slate-200 focus-within:outline-blue-300"
             value={data.email}
             onChange={handleOnChange}
           />
 
           <label htmlFor="password">Password</label>
-          <div className="flex px-2 py-1 mt-1 mb-2 bg-slate-200 rounded focus-within:outline focus-within:outline-blue-300 ">
+          <div className="flex px-2 py-1 mt-1 mb-2 rounded bg-slate-200 focus-within:outline focus-within:outline-blue-300 ">
             <input
               type={showPassword ? 'text' : 'password'}
               id="password"
               name="password"
-              className=" w-full bg-slate-200 border-none outline-none "
+              className="w-full border-none outline-none bg-slate-200"
               value={data.password}
               onChange={handleOnChange}
             />
@@ -144,12 +144,12 @@ const Signup = () => {
             </span>
           </div>
           <label htmlFor="confirmPassword">Confirm Password</label>
-          <div className="flex px-2 py-1 mt-1 mb-2 bg-slate-200 rounded focus-within:outline focus-within:outline-blue-300 ">
+          <div className="flex px-2 py-1 mt-1 mb-2 rounded bg-slate-200 focus-within:outline focus-within:outline-blue-300 ">
             <input
               type={showConfirmPassword ? 'text' : 'password'}
               id="confirmPassword"
               name="confirmPassword"
-              className=" w-full bg-slate-200 border-none outline-none "
+              className="w-full border-none outline-none bg-slate-200"
               value={data.confirmPassword}
               onChange={handleOnChange}
             />
@@ -167,9 +167,9 @@ const Signup = () => {
             Sign Up
           </button>
         </form>
-        <p className="text-left text-sm mt-2">
+        <p className="mt-2 text-sm text-left">
           Already have account ?
-          <Link to={'/login'} className="text-red-500 underline mx-1">
+          <Link to={'/login'} className="mx-1 text-red-500 underline">
             Login
           </Link>
         </p>

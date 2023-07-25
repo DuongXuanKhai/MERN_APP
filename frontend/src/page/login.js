@@ -44,7 +44,7 @@ const Login = () => {
 
       const dataRes = await fetchData.json();
       console.log(dataRes);
-      
+
       toast(dataRes.message);
       if (dataRes.alert) {
         dispatch(loginRedux(dataRes));
@@ -59,29 +59,29 @@ const Login = () => {
 
   return (
     <div className="p-3 md:p-4">
-      <div className="w-full max-w-sm bg-white m-auto flex flex-col p-4 rounded-lg">
-        {/* <h1 className="text-center text-xl font-bold">Signup</h1> */}
-        <div className="w-20 overflow-hidden rounded-full drop-shadow-md shadow-md flex m-auto">
-          <img src={loginSignupImage} className="w-full" />
+      <div className="flex flex-col w-full max-w-sm p-4 m-auto bg-white rounded-lg">
+        {/* <h1 className="text-xl font-bold text-center">Signup</h1> */}
+        <div className="flex w-20 m-auto overflow-hidden rounded-full shadow-md drop-shadow-md">
+          <img src='' className="w-full" />
         </div>
-        <form className="w-full py-3 flex flex-col" onSubmit={handleSubmit}>
+        <form className="flex flex-col w-full py-3" onSubmit={handleSubmit}>
           <label htmlFor="email">Email</label>
           <input
             type={"email"}
             id="email"
             name="email"
-            className="mt-1 mb-2 w-full bg-slate-200 px-2 py-1 rounded focus-within:outline-blue-300"
+            className="w-full px-2 py-1 mt-1 mb-2 rounded bg-slate-200 focus-within:outline-blue-300"
             value={data.email}
             onChange={handleOnChange}
           />
 
           <label htmlFor="password">Password</label>
-          <div className="flex px-2 py-1 mt-1 mb-2 bg-slate-200 rounded focus-within:outline focus-within:outline-blue-300 ">
+          <div className="flex px-2 py-1 mt-1 mb-2 rounded bg-slate-200 focus-within:outline focus-within:outline-blue-300 ">
             <input
               type={showPassword ? "text" : "password"}
               id="password"
               name="password"
-              className=" w-full bg-slate-200 border-none outline-none "
+              className="w-full border-none outline-none  bg-slate-200"
               value={data.password}
               onChange={handleOnChange}
             />
@@ -99,9 +99,9 @@ const Login = () => {
             Login
           </button>
         </form>
-        <p className="text-left text-sm mt-2">
+        <p className="mt-2 text-sm text-left">
           Don't have account ?
-          <Link to={"/signup"} className="text-red-500 underline mx-1">
+          <Link to={"/signup"} className="mx-1 text-red-500 underline">
             Sign Up
           </Link>
         </p>

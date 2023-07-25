@@ -30,47 +30,38 @@ const Home = () => {
     <div className="p-2 md:p-4">
       <div className="gap-4 py-2 md:flex">
         <div className="md:w-1/2 ">
-          <div className="flex items-center gap-3 px-2 rounded-full bg-slate-300 w-36">
-            <p className="text-sm font-medium text-slate-900">Delivery</p>
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/2972/2972185.png"
-              className="h-7"
-            />
-          </div>
           <h2 className="py-2 text-4xl font-bold md:text-7xl">
-            Giao Hàng Tận Nơi
-            <span className="text-red-500"> Your Home</span>
+            Thực phẩm chay
+            <span className="text-green-400"> Xuan Khai</span>
           </h2>
           <p className="py-3 text-base">
-            Ngày nay việc ăn chay không chỉ thuộc riêng về một nhóm người. Những
-            món chay ngon ngày càng phổ biến do chứa nhiều dưỡng chất và dễ làm.
-            Nhiều người chọn ăn chay vào ngày rằm, ngày giỗ hay xuất hiện trong
-            bữa ăn hằng ngày. Các món chay có thể được chế biến dưới nhiều hình
-            thức như món canh, món kho, món xào, món chiên...
+            Ẩm thực chay đang dần trở thành xu hướng của mọi gia đình. Đây là một lối ẩm thực thuần túy,
+            thanh tịnh. Để đáp ứng đầy đủ nhu cầu của khách hàng về ẩm thực chay. Thực phẩm chay Bảo Toàn
+            chuyên cung cấp thực phẩm chay cho đại lý, nhà hàng hân hạnh được phục vụ bạn.
           </p>
-          <button className="px-4 py-2 font-bold bg-red-500 rounded-md text-slate-200">
+          <button className="px-4 py-2 font-bold text-white bg-green-400 rounded-md">
             Mua Ngay
           </button>
         </div>
         <div className="flex flex-wrap justify-center gap-5 p-4 md:w-1/2">
           {homeProductCartList[0]
             ? homeProductCartList.map((el) => {
-                return (
-                  <HomeCard
-                    key={el._id}
-                    id={el._id}
-                    image={el.image}
-                    name={el.name}
-                    price={el.price}
-                    category={el.category}
-                  />
-                );
-              })
+              return (
+                <HomeCard
+                  key={el._id}
+                  id={el._id}
+                  image={el.image}
+                  name={el.name}
+                  price={el.price}
+                  category={el.category}
+                />
+              );
+            })
             : loadingArray.map((el, index) => {
-                return (
-                  <HomeCard key={index + 'loading'} loading={'loading...'} />
-                );
-              })}
+              return (
+                <HomeCard key={index + 'loading'} loading={'loading...'} />
+              );
+            })}
         </div>
       </div>
       <div>
@@ -99,23 +90,23 @@ const Home = () => {
         >
           {homeProductCartListFried[0]
             ? homeProductCartListFried.map((el) => {
-                return (
-                  <CartFeature
-                    key={el._id + 'Món Chiên'}
-                    id={el._id}
-                    image={el.image}
-                    name={el.name}
-                    price={el.price}
-                    category={el.category}
-                  />
-                );
-              })
+              return (
+                <CartFeature
+                  key={el._id + 'Món Chiên'}
+                  id={el._id}
+                  image={el.image}
+                  name={el.name}
+                  price={el.price}
+                  category={el.category}
+                />
+              );
+            })
             : loadingArrayFeature.map((el, index) => (
-                <CartFeature loading="Loading..." key={index + 'cartLoading'} />
-              ))}
+              <CartFeature loading="Loading..." key={index + 'cartLoading'} />
+            ))}
         </div>
       </div>
-      <AllProduct heading={'Your Product'} />
+      <AllProduct heading={'Sản phẩm của bạn'} />
     </div>
   );
 };

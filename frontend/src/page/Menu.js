@@ -10,34 +10,34 @@ const Menu = () => {
   const productDisplay = productData.filter((el) => el._id === filterby)[0];
   console.log(productDisplay);
   const dispatch = useDispatch()
-  const handleAddCartProduct = (e)=>{
+  const handleAddCartProduct = (e) => {
 
     dispatch(addCartItem(productDisplay))
   }
   return (
     <div className="p-2 md:p-4">
-      <div className="w-full max-w-4xl m-auto md:flex bg-white ">
-        <div className="max-w-sm overflow-hidden w-full p-5">
+      <div className="w-full max-w-4xl m-auto bg-white md:flex ">
+        <div className="w-full max-w-sm p-5 overflow-hidden">
           <img
             src={productDisplay.image}
-            className="hover:scale-105 transition-all rounded"
+            className="transition-all rounded hover:scale-105"
           />
         </div>
         <div className="flex flex-col gap-1 mx-5">
-          <h3 className="font-semibold text-slate-600 capitalize text-2xl md:text-4xl ">
+          <h3 className="text-2xl font-semibold capitalize text-slate-600 md:text-4xl ">
             {productDisplay.name}
           </h3>
-          <p className=" text-slate-500 font-medium text-2xl">
+          <p className="text-2xl font-medium text-slate-500">
             {productDisplay.category}
           </p>
-          <p className=" font-bold text-2xl">
+          <p className="text-2xl font-bold ">
             <span>{productDisplay.price}</span>
           </p>
           <div className="flex gap-3">
-            <button className="bg-yellow-500 text-center my-4 px-2 w-full hover:bg-yellow-600 rounded min-w-[100px] ">
+            <button className="bg-green-400 text-center my-4 px-2 w-full hover:bg-green-600 rounded min-w-[100px] ">
               Mua
             </button>
-            <button className="bg-yellow-500 text-center my-4 px-2 w-full hover:bg-yellow-600 rounded min-w-[100px]  ">
+            <button className="bg-green-400 text-center my-4 px-2 w-full hover:bg-green-600 rounded min-w-[100px]  ">
               Thêm
             </button>
           </div>
@@ -47,7 +47,7 @@ const Menu = () => {
           </div>
         </div>
       </div>
-      <AllProduct heading={'Related Product'}/>
+      <AllProduct heading={'Sản phẩm liên quan'} />
     </div>
   );
 };
